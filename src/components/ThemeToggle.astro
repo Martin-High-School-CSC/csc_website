@@ -1,0 +1,64 @@
+---
+---
+<button id="theme-toggle" title="Toggles light & dark theme">
+    <span class="material-symbols-outlined light">light_mode</span>
+    <span class="material-symbols-outlined dark">dark_mode</span>
+</button>
+
+<style>
+    #theme-toggle {
+        border: 0;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        margin-right: 1em;
+    }
+    #theme-toggle .material-symbols-outlined {
+        font-size: 1.5rem;
+        color: var(--text);
+        vertical-align: middle;
+    }
+
+    /* Hide dark icon by default */
+    html:not([data-theme='dark']) .dark {
+        display: none;
+    }
+
+    html[data-theme='dark'] .light {
+        display: none;
+    }
+</style>
+
+<script>
+	function initializeTheme() {
+		const getThemePreference = () => {
+			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+				return localStorage.getItem('theme');
+			}
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		};
+
+		const applyTheme = (theme) => {
+			document.documentElement.setAttribute('data-theme', theme);
+		};
+
+		const themeToggle = document.getElementById('theme-toggle');
+		const handleClick = () => {
+			const newTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+			localStorage.setItem('theme', newTheme);
+			applyTheme(newTheme);
+		};
+
+		// Apply theme on load
+		applyTheme(getThemePreference());
+
+		// Add click listener
+		themeToggle?.addEventListener('click', handleClick);
+	}
+
+	// Run on initial page load
+	initializeTheme();
+
+	// Re-run after every view transition
+	document.addEventListener('astro:after-swap', initializeTheme);
+</script>

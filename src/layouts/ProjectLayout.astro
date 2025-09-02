@@ -51,7 +51,7 @@ const {
                 max-width: calc(100% - 2em);
                 margin: auto;
                 padding: 1em;
-                color: rgb(var(--gray-dark));
+                color: var(--text);
             }
             .title {
                 margin-bottom: 1em;
@@ -64,7 +64,7 @@ const {
             }
             .meta {
                 margin-bottom: 0.5em;
-                color: rgb(var(--gray));
+                color: var(--text-gray);
                 display: flex;
                 flex-wrap: wrap;
                 /* Only vertical gap; horizontal spacing is handled by separators */
@@ -76,7 +76,7 @@ const {
             .meta > * + *::before {
                 content: '·';
                 margin: 0 0.5rem;
-                color: rgb(var(--gray));
+                color: var(--text-gray);
             }
             .links {
                 display: inline-flex;
@@ -85,20 +85,13 @@ const {
                 white-space: nowrap;
             }
             .links a {
-                color: rgb(var(--accent));
+                color: var(--accent);
             }
             /* Add dot between multiple links (e.g., Live demo · Source) */
             .links a + a::before {
                 content: '·';
                 margin: 0 0.5rem;
-                color: rgb(var(--gray));
-            }
-            .badge {
-                background: rgba(var(--accent), 0.08);
-                color: rgb(var(--accent));
-                padding: 0.25rem 0.5rem;
-                border-radius: 0.5rem;
-                font-size: 0.9em;
+                color: var(--text-gray);
             }
         </style>
     </head>
