@@ -88,16 +88,18 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main transition:animate="fade">
 			<section>
 				<ul>
 					{
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
+									{post.data.heroImage && (typeof post.data.heroImage === 'string' ? (
+										<img width="720" height="360" src={post.data.heroImage} alt="" loading="lazy" transition:name={`post-image-${post.data.title}`} />
+									) : (
+										<Image width={720} height={360} src={post.data.heroImage} alt="" transition:name={`post-image-${post.data.title}`} />
+									))}
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
