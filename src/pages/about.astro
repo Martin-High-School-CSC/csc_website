@@ -10,24 +10,21 @@ import Layout from "../layouts/BlogPost.astro";
 	heroImage={AboutHeroImage}
 >
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
-		integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu
-		turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus
-		sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget
-		magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius
-		sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque
-		sagittis purus sit amet.
+		The Computer Science Club is a student-led organization dedicated to
+		enabling students to explore and excel in the field of computer science.
+		Our mission is to foster a collaborative environment where members can
+		learn, share knowledge, and work on exciting projects together.
 	</p>
 
-	<h2>Meeting Schedule</h2>
-	<iframe
-		src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=Y18xY2RkZGE4YmNlZWQxYjk5MWJjNWNjZmNkNDI2NzM3OWJjNDI1NTM5YTRlNjQyMDEwNzc3MzU5MmIzOTk3MGE2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237986cb"
-		style="border-radius: 12px;"
-		width="720"
-		height="600"
-		frameborder="0"
-		scrolling="no"></iframe>
+	<section id="calendar">
+		<h2>Meeting Schedule</h2>
+		<iframe
+			src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=Y18xY2RkZGE4YmNlZWQxYjk5MWJjNWNjZmNkNDI2NzM3OWJjNDI1NTM5YTRlNjQyMDEwNzc3MzU5MmIzOTk3MGE2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237986cb"
+			style="border-radius: var(--border-radius);"
+			width="720"
+			height="600"
+			frameborder="0"
+			scrolling="no"
+		></iframe>
+	</section>
 </Layout>

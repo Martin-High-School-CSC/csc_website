@@ -1,8 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+import PrimaryButton from '../components/PrimaryButton.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.createdDate.valueOf() - a.data.createdDate.valueOf()
+);
 ---
 
 <!doctype html>
@@ -15,9 +26,28 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<main>
 			<h1>MHS Computer Science Club</h1>
 			<p>
-				Something great is coming soon!
+				Welcome to the Martin High School Computer Science Club website! We are a group of
+				students passionate about computer science and technology.
+
+				We run various activities including lunch n learns, media nights, and HackMHS, our
+				annual hackathon. You can view our calendar <a href="/about#calendar">here</a>.
 			</p>
+			<div class="links">
+				<PrimaryButton href="/about">Learn More About Us</PrimaryButton>
+				<PrimaryButton href="/projects">View Our Members' Projects</PrimaryButton>
+			</div>
 		</main>
 		<Footer />
 	</body>
+
+	<style>
+		.links {
+			display: flex;
+			flex-direction: row;
+			gap: 1em;
+			margin-top: 2em;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
 </html>

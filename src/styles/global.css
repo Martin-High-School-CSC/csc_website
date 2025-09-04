@@ -10,8 +10,11 @@
 	--text-gray-dark: #1a1a1a;
 	--background: #fbfbfe;
 	--primary: #553cd3;
+	--primary-hover: #3e27a8;
 	--secondary: #a79fdf;
+	--secondary-hover: #8c7cba;
 	--accent: #c884a5;
+	--accent-hover: #b36f8f;
 }
 
 :root[data-theme="dark"] {
@@ -20,8 +23,11 @@
 	--text-gray-dark: #7a7a7a;
 	--background: #010104;
 	--primary: #462cc3;
+	--primary-hover: #2e1a8f;
 	--secondary: #282060;
+	--secondary-hover: #1e174b;
 	--accent: #7b3758;
+	--accent-hover: #6a2e4b;
 }
 
 :root {
@@ -32,6 +38,7 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+	--border-radius: 12px;
 }
 
 @font-face {
@@ -139,18 +146,18 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	border-radius: var(--border-radius);
 }
 
 pre {
 	padding: 1.5em;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 pre>code {
